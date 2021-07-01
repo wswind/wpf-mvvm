@@ -14,8 +14,10 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Text="{Binding Path=HelloText}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Grid.Row="1" Name="btnTest" Content="test" Click="btnTest_Click"></Button>
+        <Button Grid.Row="1" Name="btnTest" Content="hello again" Click="btnTest_Click"></Button>
+        <Button Grid.Row="1" Grid.Column="1" Name="btnTest2" Content="command" Click="btnTest2_Click" Command="{Binding Path=ChangeNameCommand}"></Button>
     </Grid>
 </Window>
