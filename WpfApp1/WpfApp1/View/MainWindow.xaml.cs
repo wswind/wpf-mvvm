@@ -33,6 +33,7 @@ namespace WpfApp1
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
             _vm.HelloText = "Hello Again WPF MVVM";
+            _vm.OnPropertyChanged(nameof(MainWindowViewModel.HelloText));
         }
     }
 }
