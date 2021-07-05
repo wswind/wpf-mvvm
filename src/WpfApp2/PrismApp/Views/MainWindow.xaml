@@ -1,0 +1,33 @@
+﻿<Window x:Class="PrismApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="350" Width="525" >
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="{Binding Path=HelloText}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Row="1" Name="btn1" Content="btn-test-commnad"  Command="{Binding ChangeTextCommand}"></Button>
+        <Button Grid.Row="1" Grid.Column="1" Name="btn2" Content="btn-test-inter">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <prism:InvokeCommandAction Command="{Binding ChangeTextCommand}"                                             />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0" Name="btn3" Content="btn-onclick" Click="OnClick"/>
+        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+    </Grid>
+</Window>
