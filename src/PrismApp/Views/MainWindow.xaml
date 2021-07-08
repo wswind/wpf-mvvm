@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <!--<RowDefinition Height="*" />-->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -19,15 +19,16 @@
         </Grid.ColumnDefinitions>
         
         <TextBlock Grid.Row="0" Text="{Binding Path=HelloText}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Grid.Row="1" Name="btn1" Content="btn-test-commnad"  Command="{Binding ChangeTextCommand}"></Button>
-        <Button Grid.Row="1" Grid.Column="1" Name="btn2" Content="btn-test-inter">
+        <Button Grid.Row="1" Grid.Column="0" Name="btn1" Content="hello again"  Command="{Binding ChangeTextCommand1}"></Button>
+        <Button Grid.Row="1" Grid.Column="1" Name="btn2" Content="delegate command"  Command="{Binding ChangeTextCommand2}"></Button>
+        <!--<Button Grid.Row="1" Grid.Column="1" Name="btn2" Content="btn-test-inter">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <prism:InvokeCommandAction Command="{Binding ChangeTextCommand}"                                             />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-        </Button>
-        <Button Grid.Row="2" Grid.Column="0" Name="btn3" Content="btn-onclick" Click="OnClick"/>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        </Button>-->
+        <!--<Button Grid.Row="2" Grid.Column="0" Name="btn3" Content="btn-onclick" Click="OnClick"/>-->
+        <!--<ContentControl prism:RegionManager.RegionName="ContentRegion" />-->
     </Grid>
 </Window>

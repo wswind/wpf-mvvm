@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using System;
 
 namespace PrismApp.ViewModels
 {
@@ -7,8 +8,13 @@ namespace PrismApp.ViewModels
     {
         public MainWindowViewModel()
         {
-            ChangeTextCommand = new DelegateCommand<object>(ChangeText, CanChangeText);
+            ChangeTextCommand1 = new DelegateCommand(HelloAgain);
+            ChangeTextCommand2 = new DelegateCommand(ChangeText, CanChangeText);
         }
+
+        public DelegateCommand ChangeTextCommand1 { get; private set; }
+        public DelegateCommand ChangeTextCommand2 { get; private set; }
+
 
         private string _title = "Prism Application";
         public string Title
@@ -16,25 +22,36 @@ namespace PrismApp.ViewModels
             get { return _title; }
             set { SetProperty(ref _title, value); }
         }
+        private void HelloAgain()
+        {
+            HelloText = "Hello Again WPF MVVM";
+        }
 
-        public void ChangeText(object parameter)
+        public void ChangeText()
         {
             HelloText = "changed";
         }
 
-        bool CanChangeText(object parameter)
+        private bool _oldCanChange = true;
+        bool CanChangeText()
         {
-            return true;
+            bool canChange = HelloText != "changed";
+            if(_oldCanChange != canChange)
+            {
+                _oldCanChange = canChange;
+                ChangeTextCommand2.RaiseCanExecuteChanged();
+            }
+            return canChange;
         }
 
-        public DelegateCommand<object> ChangeTextCommand { get; private set; }
 
-
-        private string _helloText = "origin";
+        private string _helloText = "Hello WPF MVVM";
         public string HelloText
         {
             get { return _helloText; }
             set { SetProperty(ref _helloText, value); }
         }
+
+        
     }
 }

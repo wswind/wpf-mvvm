@@ -21,19 +21,19 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly MainWindowViewModel _vm;
+        //private readonly MainWindowViewModel _vm;
 
         public MainWindow()
         {
-            _vm = new MainWindowViewModel();
-            DataContext = _vm;
+            //_vm = new MainWindowViewModel();
+            //DataContext = _vm;
             InitializeComponent();
         }
 
-        private void btnTest_Click(object sender, RoutedEventArgs e)
-        {
-            _vm.HelloText = "Hello Again WPF MVVM";
-            //_vm.OnPropertyChanged(nameof(MainWindowViewModel.HelloText));
-        }
+        //private void btnTest_Click(object sender, RoutedEventArgs e)
+        //{
+        //    _vm.HelloText = "Hello Again WPF MVVM";
+        //    //_vm.OnPropertyChanged(nameof(MainWindowViewModel.HelloText));
+        //}
     }
 }

@@ -13,10 +13,10 @@ namespace PrismApp.Views
             InitializeComponent();
         }
 
-        private void OnClick(object sender, RoutedEventArgs e)
-        {
-            var vm = DataContext as MainWindowViewModel;
-            vm.ChangeText(null);
-        }
+        //private void OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    var vm = DataContext as MainWindowViewModel;
+        //    vm.ChangeText(null);
+        //}
     }
 }
