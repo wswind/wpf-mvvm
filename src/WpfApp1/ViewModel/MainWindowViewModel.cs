@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
+using WpfApp1.Command;
 
 namespace WpfApp1.ViewModel
 {
@@ -12,6 +13,7 @@ namespace WpfApp1.ViewModel
         {
             HelloText = "Hello WPF MVVM";
             _changeNameCommand = new DelegateCommand(OnChangeName, CanChangeName);
+            _relayCommand = new RelayCommand(OnChangeName, CanChangeName);
         }
 
         /*
@@ -21,9 +23,11 @@ namespace WpfApp1.ViewModel
         */
 
         private readonly DelegateCommand _changeNameCommand;
+        private readonly ICommand _relayCommand;
+
         public ICommand ChangeNameCommand => _changeNameCommand;
 
-      
+        public ICommand RelayCommand => _relayCommand;
         private void OnChangeName(object commandParameter)
         {
             HelloText = "Walter";
@@ -35,7 +39,8 @@ namespace WpfApp1.ViewModel
         }
 
         private string _helloText;
-        public string HelloText { 
+        public string HelloText
+        {
             get => _helloText;
             set => SetProperty(ref _helloText, value);
         }

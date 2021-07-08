@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WpfApp1.ViewModel
+namespace WpfApp1.Command
 {
     public class DelegateCommand : ICommand
     {
@@ -25,5 +25,9 @@ namespace WpfApp1.ViewModel
 
         //https://stackoverflow.com/questions/4531360/what-is-canexecutechanged-for
         public event EventHandler CanExecuteChanged;
+        /*{
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }*/
     }
 }

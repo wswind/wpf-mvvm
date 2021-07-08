@@ -27,11 +27,7 @@ namespace PrismApp.ViewModels
             return true;
         }
 
-
-
         public DelegateCommand<object> ChangeTextCommand { get; private set; }
-
-
 
 
         private string _helloText = "origin";
