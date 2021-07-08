@@ -1,6 +1,5 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using System;
 
 namespace PrismApp.ViewModels
 {
@@ -32,16 +31,9 @@ namespace PrismApp.ViewModels
             HelloText = "changed";
         }
 
-        private bool _oldCanChange = true;
         bool CanChangeText()
         {
-            bool canChange = HelloText != "changed";
-            if(_oldCanChange != canChange)
-            {
-                _oldCanChange = canChange;
-                ChangeTextCommand2.RaiseCanExecuteChanged();
-            }
-            return canChange;
+            return  HelloText != "changed";
         }
 
 
@@ -49,9 +41,11 @@ namespace PrismApp.ViewModels
         public string HelloText
         {
             get { return _helloText; }
-            set { SetProperty(ref _helloText, value); }
+            set 
+            { 
+                SetProperty(ref _helloText, value);
+                ChangeTextCommand2.RaiseCanExecuteChanged();
+            }
         }
-
-        
     }
 }
