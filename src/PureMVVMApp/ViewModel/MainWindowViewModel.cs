@@ -39,12 +39,12 @@ namespace WpfApp1.ViewModel
         public ICommand RelayCommand2 => _relayCommand2;
         private void ChangeName(object commandParameter)
         {
-            HelloText = "Walter";
+            HelloText = "changed";
         }
 
         private bool CanChangeName(object commandParameter)
         {
-            return HelloText != "Walter";
+            return HelloText != "changed";
         }
 
         private string _helloText;
